@@ -15,14 +15,14 @@ Once it is enabled, you can access the SSO setup wizard.
    
    Create a new application in Auth0:
 
-   ![screenshot-creating-auth0-app](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-creating-auth0-app.png)
+   ![screenshot-creating-auth0-app](screenshot-creating-auth0-app.png)
 
    Terraform Cloud is a regular website:
 
-      ![screenshot-regular-website](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-regular-website.png)
+      ![screenshot-regular-website](screenshot-regular-website.png)
    
    Authentication between Auth0 and TFC is not done via http(The authentication will be done on the SAML layer):
-      ![screenshot-regular-website](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-no-token-endpoint-auth.png)
+      ![screenshot-regular-website](screenshot-no-token-endpoint-auth.png)
 
    In the settings windows, paste below contents, this setting will return email address to TFC as the name, which is required by Terraform Cloud:
 ```xml
@@ -63,46 +63,46 @@ Once it is enabled, you can access the SSO setup wizard.
   Go to the usage page and get the link of Identity Provider Metadata:
       ![screenshot-get-identity-provider-metadata-link](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-get-identity-provider-metadata-link.png)
   
-2. Setting up Terraform Cloud
+1. Setting up Terraform Cloud
    
    You can access the SSO setup menu from here:
-   ![screenshot-sso-setup](screenshots/screenshot-sso-setup.png)
+   ![screenshot-sso-setup](screenshot-sso-setup.png)
 
    select SAML:
 
-   ![screenshot-sso-SAML](screenshots/screenshot-sso-SAML.png)
+   ![screenshot-sso-SAML](screenshot-sso-SAML.png)
 
    In the Metadata URL field, paste the Identity Provider Metadata URL you copied from last step, remove the Google Analytics query strings,and turn off team management:
    
-   ![screenshot-paste-identity-provider-metadata-url](screenshots/screenshot-paste-identity-provider-metadata-url.png)
+   ![screenshot-paste-identity-provider-metadata-url](screenshot-paste-identity-provider-metadata-url.png)
 
    Once saved, you need to copy the Assertion Consumer Service URL:
    
-   ![screenshot-copy-assertion-consumer-service-url](screenshots/screenshot-copy-assertion-consumer-service-url.png)
+   ![screenshot-copy-assertion-consumer-service-url](screenshot-copy-assertion-consumer-service-url.png)
 
-3. Continue on Auth0
+2. Continue on Auth0
 
    Paste the Assertion Consumer Service URL from Terraform Cloud to Auth0 Application Callback URL on the settings tab, and save.
 
-   ![screenshot-ACS-url](screenshots/screenshot-ACS-url.png)
+   ![screenshot-ACS-url](screenshot-ACS-url.png)
 
-4. Enable the SAML login on Terraform Cloud
+3. Enable the SAML login on Terraform Cloud
    
-   ![screenshot-enable-saml-login](screenshots/screenshot-enable-saml-login.png)
+   ![screenshot-enable-saml-login](screenshot-enable-saml-login.png)
 
 # Try it out
  
    Click on this [link](https://app.terraform.io/sso/sign-in), and type in your orgnisation name:
 
-   ![screenshot-tfc-sso-login](screenshots/screenshot-tfc-sso-login.png)
+   ![screenshot-tfc-sso-login](screenshot-tfc-sso-login.png)
 
    Auth0 login window will pop up:
 
-   ![screenshot-auth0-login](screenshots/screenshot-auth0-login.png)
+   ![screenshot-auth0-login](screenshot-auth0-login.png)
 
    you can use Sign in via Google to login, since this is the first time you use SSO to sign-in into this orgnisation, Terraform Cloud will ask you to confirm your Terraform Cloud account password:
 
-   ![screenshot-first-time-sso](screenshots/screenshot-first-time-sso.png)
+   ![screenshot-first-time-sso](screenshot-first-time-sso.png)
 
    Once you link your account, you will be allowed in. You may not be able to see any workspaces if you are not part of any team - by default, users logged in via Single Sign-On will belong to a group called sso, which doesn't have visibility to any workspaces. you can ask the orgnisation owner to assign you to the right team.
    
