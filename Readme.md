@@ -1,4 +1,3 @@
-What is this about
 
 Terraform Cloud for Business has released Single-Sign-On for customers so that you don't have to have use seperate credentials to authenticate with TFC. You can configure SSO using the out-of-box integration with Okta, or a generic SAML 2.0 integration. Auth0 is a popular authentication platform for developers and has been adopted by some large enterprises. The best feature is that it is free for upto 7000 active users. In this artical I am going to show you how to use Auth0 as the Identity Provider to Single-Sign-on into Terraform Cloud for Business.
 
@@ -24,7 +23,7 @@ Once it is enabled, you can access the SSO setup wizard.
    screenshot-no-authentication-token
 
    In the settings windows, paste below contents, this setting will return email address to TFC as the name, which is required by Terraform Cloud:
-   ```
+   ````
    {
   "mappings": {
     "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
@@ -57,7 +56,7 @@ Once it is enabled, you can access the SSO setup wizard.
   },
   "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
   }
-  ```
+  ````
 
   Go to the usage page and get the link of Identity Provider Metadata:
   screenshot-get-identity-provider-metadata-link
