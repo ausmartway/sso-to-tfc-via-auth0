@@ -23,8 +23,8 @@ Once it is enabled, you can access the SSO setup wizard.
    screenshot-no-authentication-token
 
    In the settings windows, paste below contents, this setting will return email address to TFC as the name, which is required by Terraform Cloud:
-   ````
-   {
+```xml
+{
   "mappings": {
     "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
     "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
@@ -56,12 +56,12 @@ Once it is enabled, you can access the SSO setup wizard.
   },
   "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
   }
-  ````
+```
 
   Go to the usage page and get the link of Identity Provider Metadata:
   screenshot-get-identity-provider-metadata-link
    
-2. Setting up Terraform Cloud
+1. Setting up Terraform Cloud
    You can access the SSO setup menu from here:
    screenshot-sso-setup
 
@@ -74,12 +74,12 @@ Once it is enabled, you can access the SSO setup wizard.
    Once saved, you need to copy the Assertion Consumer Service URL:
    screenshot-copy-assertion-consumer-service-url
 
-3. Continue on Auth0
+2. Continue on Auth0
    Paste the Assertion Consumer Service URL from Terraform Cloud to Auth0 Application Callback URL on the settings tab, and save.
    screenshot-ACS-url
 
 
-4. Enable the SAML login on Terraform Cloud
+3. Enable the SAML login on Terraform Cloud
    screenshot-enable-saml-login
 
 # Try it out
