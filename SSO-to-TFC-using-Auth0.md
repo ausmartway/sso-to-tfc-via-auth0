@@ -1,11 +1,11 @@
 
-Terraform Cloud for Business has released Single-Sign-On for customers so that you don't have to have use seperate credentials to authenticate with TFC. You can configure SSO using the out-of-box integration with Okta, or a generic SAML 2.0 integration. Auth0 is a popular authentication platform for developers and has been adopted by some large enterprises. The best feature is that it is free for upto 7000 active users. In this artical I am going to show you how to use Auth0 as the Identity Provider to Single-Sign-on into Terraform Cloud for Business.
+Terraform Cloud for Business has released Single-Sign-On for customers so that you don't have to use separate credentials to authenticate with TFC. You can configure SSO using the out-of-box integration with Okta, or a generic SAML 2.0 integration. Auth0 is a popular authentication platform for developers and has been adopted by some large enterprises. The best feature is that it is free for up to 7000 active users. In this article, I am going to show you how to use Auth0 as the Identity Provider to Single-Sign-on into Terraform Cloud for Business.
 
 # Getting started
 
 I assume you already have a Terraform Cloud for Business plan. if you don't, please speak to your Hashicorp Account Manager or reach us from [here](https://www.hashicorp.com/contact-sales).
 
-You also need a Auth0 account, if you don't have one, you can get a free account [here](https://auth0.com/signup).
+You also need an Auth0 account, if you don't have one, you can get a free account [here](https://auth0.com/signup).
 
 Once it is enabled, you can access the SSO setup wizard.
 
@@ -24,8 +24,8 @@ Once it is enabled, you can access the SSO setup wizard.
    Authentication between Auth0 and TFC is not done via http(The authentication will be done on the SAML layer):
       ![screenshot-regular-website](screenshot-no-token-endpoint-auth.png)
 
-   In the settings windows, paste below contents, this setting will return email address to TFC as the name, which is required by Terraform Cloud:
-```xml
+   In the settings windows, paste the below contents, this setting will return the email address to TFC as the name, which is required by Terraform Cloud:
+```json
 {
   "mappings": {
     "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
@@ -72,7 +72,7 @@ Once it is enabled, you can access the SSO setup wizard.
 
    ![screenshot-sso-SAML](screenshot-sso-SAML.png)
 
-   In the Metadata URL field, paste the Identity Provider Metadata URL you copied from last step, remove the Google Analytics query strings,and turn off team management:
+   In the Metadata URL field, paste the Identity Provider Metadata URL you copied from the last step, remove the Google Analytics query strings, and turn off team management:
    
    ![screenshot-paste-identity-provider-metadata-url](screenshot-paste-identity-provider-metadata-url.png)
 
@@ -100,14 +100,9 @@ Once it is enabled, you can access the SSO setup wizard.
 
    ![screenshot-auth0-login](screenshot-auth0-login.png)
 
-   you can use Sign in via Google to login, since this is the first time you use SSO to sign-in into this orgnisation, Terraform Cloud will ask you to confirm your Terraform Cloud account password:
+   you can use Sign in via Google to log in, since this is the first time you use SSO to sign-in into this organization, Terraform Cloud will ask you to confirm your Terraform Cloud account password:
 
    ![screenshot-first-time-sso](screenshot-first-time-sso.png)
 
-   Once you link your account, you will be allowed in. You may not be able to see any workspaces if you are not part of any team - by default, users logged in via Single Sign-On will belong to a group called sso, which doesn't have visibility to any workspaces. you can ask the orgnisation owner to assign you to the right team.
-   
-
-
-
-
-
+   Once you link your account, you will be allowed in. You may not be able to see any workspaces if you are not part of any team - by default, users logged in via Single Sign-On will belong to a group called sso, which doesn't have visibility to any workspaces. you can ask the organization owner to assign you to the right team.
+ 
