@@ -14,7 +14,7 @@ Once it is enabled, you can access the SSO setup wizard.
 1. Setting up Auth0.
    
    Create a new application in Auth0. 
-   screenshot-creating-auth0-app
+   ![screenshot-creating-auth0-app](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-creating-auth0-app.png)
 
    Terraform Cloud is a regular website:
    screenshot-regular-website
