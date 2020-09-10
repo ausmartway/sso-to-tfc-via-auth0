@@ -13,14 +13,16 @@ Once it is enabled, you can access the SSO setup wizard.
 
 1. Setting up Auth0.
    
-   Create a new application in Auth0. 
+   Create a new application in Auth0:
+
    ![screenshot-creating-auth0-app](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-creating-auth0-app.png)
 
    Terraform Cloud is a regular website:
-   screenshot-regular-website
+
+      ![screenshot-regular-website](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-regular-website.png)
    
    Authentication between Auth0 and TFC is not done via http(The authentication will be done on the SAML layer):
-   screenshot-no-authentication-token
+      ![screenshot-regular-website](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-no-token-endpoint-auth.png)
 
    In the settings windows, paste below contents, this setting will return email address to TFC as the name, which is required by Terraform Cloud:
 ```xml
@@ -59,11 +61,12 @@ Once it is enabled, you can access the SSO setup wizard.
 ```
 
   Go to the usage page and get the link of Identity Provider Metadata:
-  screenshot-get-identity-provider-metadata-link
+      ![screenshot-get-identity-provider-metadata-link](https://github.com/ausmartway/sso-to-tfc-via-auth0/raw/master/screenshots/screenshot-get-identity-provider-metadata-link.png)
+  
+2. Setting up Terraform Cloud
    
-1. Setting up Terraform Cloud
    You can access the SSO setup menu from here:
-   screenshot-sso-setup
+   ![screenshot-sso-setup](screenshots/screenshot-sso-setup.png)
 
    select SAML:
    screenshot-sso-SAML
@@ -74,12 +77,12 @@ Once it is enabled, you can access the SSO setup wizard.
    Once saved, you need to copy the Assertion Consumer Service URL:
    screenshot-copy-assertion-consumer-service-url
 
-2. Continue on Auth0
+3. Continue on Auth0
    Paste the Assertion Consumer Service URL from Terraform Cloud to Auth0 Application Callback URL on the settings tab, and save.
    screenshot-ACS-url
 
 
-3. Enable the SAML login on Terraform Cloud
+4. Enable the SAML login on Terraform Cloud
    screenshot-enable-saml-login
 
 # Try it out
